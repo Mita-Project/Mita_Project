@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Entities.Models
+namespace Project.DAL.Context
 {
-    public class Example2
+    public class MyContext
     {
+
     }
 }
