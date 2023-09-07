@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Project.Entities.Models
 {
-    internal class ExampleClass1
+    public class ServiceRecord_Company:BaseEntity
     {
+        public virtual ServiceRecord ServiceRecord { get; set; }
+        public virtual Company Company { get; set; }
     }
 }
