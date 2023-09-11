@@ -18,7 +18,7 @@ namespace Project.Entities.Models
         public bool Subcontractor_Exists { get; set; }
 
         //Relations
-        public virtual List<Fotograph> Fotographs { get; set; }
+        public virtual List<Photograph> Fotographs { get; set; }
         public virtual Request Request { get; set; }
         public virtual Team Team { get; set; }
         public virtual List<EMail> EMail { get; set; }

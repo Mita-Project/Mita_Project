@@ -14,7 +14,7 @@ namespace Project.Entities.Models
         //Relations
         public virtual User User { get; set; }
         public virtual List<Document> Documents { get; set; }
-        public virtual List<Fotograph> Fotographs { get; set; }
+        public virtual List<Photograph> Fotographs { get; set; }
         public virtual ServiceRecord ServiceRecord { get; set; }
     }
 }

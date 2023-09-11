@@ -13,7 +13,7 @@ namespace Project.Entities.Models
 
         //Relations
         public virtual Company Company { get; set; }
-        public virtual List<Fotograph> Fotographs { get; set; }
+        public virtual List<Photograph> Fotographs { get; set; }
         public virtual ServiceRecord ServiceRecord { get; set; }
         public virtual Team Team { get; set; }
 
