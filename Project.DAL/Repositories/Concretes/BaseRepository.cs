@@ -12,16 +12,22 @@ namespace Project.DAL.Repositories.Concretes
 {
     public class BaseRepository<T> : IRepository<T> where T :class, IEntity
     {
+        // DataBase Encapsulation
+
         protected MyContext _db;
 
         public BaseRepository(MyContext db)
         {
             _db = db;
         }
+
+        //Save command
         protected void Save()
         {
             _db.SaveChanges();
         }
+
+        //Item adding commands
 
         public void Add(T item)
         {
@@ -38,12 +44,7 @@ namespace Project.DAL.Repositories.Concretes
             foreach(T i in list) Add(i);
             Save();
         }
-
-        public bool Any(Expression<Func<T, bool>> exp)
-        {
-            return _db.Set<T>().Any(exp);
-        }
-
+        //Deleting Commands
         public void Delete(T item)
         {
             item.Status=Entities.Enums.DataStatus.Passive; 
@@ -56,6 +57,7 @@ namespace Project.DAL.Repositories.Concretes
             foreach(T item in list) Delete(item);
         }
 
+        //Destroying Commands
         public void Destroy(T item)
         {
             _db.Set<T>().Remove(item);
@@ -66,6 +68,12 @@ namespace Project.DAL.Repositories.Concretes
         {
             _db.Set<T>().RemoveRange(list);
             Save();
+        }
+
+        //Getting Commands
+        public bool Any(Expression<Func<T, bool>> exp)
+        {
+            return _db.Set<T>().Any(exp);
         }
 
         public T Find(int id)
@@ -107,6 +115,12 @@ namespace Project.DAL.Repositories.Concretes
         {
             return Where(x => x.Status == Entities.Enums.DataStatus.Passive);
         }
+        public List<T> Where(Expression<Func<T, bool>> exp)
+        {
+            return _db.Set<T>().Where(exp).ToList();
+        }
+
+        //Selecting Commands
 
         public object Select(Expression<Func<T, bool>> exp)
         {
@@ -117,6 +131,8 @@ namespace Project.DAL.Repositories.Concretes
         {
             return _db.Set<T>().Select(exp);
         }
+
+        //Updating Commands
 
         public void Update(T item)
         {
@@ -132,9 +148,5 @@ namespace Project.DAL.Repositories.Concretes
             foreach(T item in list) Update(item);
         }
 
-        public List<T> Where(Expression<Func<T, bool>> exp)
-        {
-            return _db.Set<T>().Where(exp).ToList();
-        }
     }
 }
