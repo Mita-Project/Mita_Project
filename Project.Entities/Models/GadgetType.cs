@@ -12,7 +12,6 @@ namespace Project.Entities.Models
         public string TypeDescription { get; set; }
 
         //Relations
-
         public virtual List<Gadget> Gadgets { get; set; }
     }
 }

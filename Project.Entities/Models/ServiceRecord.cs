@@ -18,12 +18,18 @@ namespace Project.Entities.Models
         public bool Subcontractor_Exists { get; set; }
 
         //Relations
-        public virtual List<Photograph> Fotographs { get; set; }
+        public virtual List<Photograph> Photographs { get; set; }
+
         public virtual Request Request { get; set; }
+        public int RequestId { get; set; }
+
         public virtual Team Team { get; set; }
+        public int TeamId { get; set; }
+
         public virtual List<EMail> EMail { get; set; }
         public virtual List<ServiceRecord_Material> ServiceRecord_Materials { get; set; }
         public virtual List<ServiceRecord_Company> ServiceRecord_Companies { get; set; }
         public virtual List<ServiceRecord_User> ServiceRecord_Users { get; set; }
+        public virtual List<Message> Messages { get; set; }
     }
 }

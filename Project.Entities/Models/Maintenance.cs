@@ -17,9 +17,12 @@ namespace Project.Entities.Models
         //Relations
 
         public virtual Company Company { get; set; }
+        public int CompanyId { get; set; }
+
         public virtual List<MaintenanceRecord> MaintenanceRecords { get; set; }
-        public virtual List<Gadget> Gadgets { get; set; }
+        public virtual List<Gadget_Maintenance> Gadget_Maintenances { get; set; }
         public virtual MaintenanceType MaintenanceType { get; set; }
+        public int MaintenanceTypeId { get; set; }
 
     }
 }
