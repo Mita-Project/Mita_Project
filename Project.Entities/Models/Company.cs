@@ -20,6 +20,7 @@ namespace Project.Entities.Models
 
         //Relations
         public virtual List<Request> Requests { get; set; }
-        public virtual List<ServiceRecord> ServiceRecords { get; set; }
+        public virtual List<ServiceRecord_Company> ServiceRecord_Companies { get; set; }
+        public virtual List<Maintenance> Maintenances { get; set; }
     }
 }

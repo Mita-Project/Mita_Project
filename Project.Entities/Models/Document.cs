@@ -13,5 +13,9 @@ namespace Project.Entities.Models
 
         //Relations
         public virtual Message Message { get; set; }
+        public int MessageId { get; set; }
+
+        public virtual EMail EMail { get; set; }
+        public int EMailId { get; set; }
     }
 }

@@ -30,6 +30,6 @@ namespace Project.Entities.Models
         public string Role_Exp { get; set; }
 
         //Relations
-        public virtual List<User> Users { get; set; }
+        public virtual List<User_Role> User_Roles { get; set; }
     }
 }

@@ -14,5 +14,7 @@ namespace Project.Entities.Models
         //Relations
         public virtual List<User> Users { get; set; }
         public virtual List<Request> Requests { get; set; }
+        public virtual List<MaintenanceRecord> MaintenanceRecords { get; set; }
+        public virtual List<ServiceRecord> ServiceRecords { get; set; }
     }
 }

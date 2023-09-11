@@ -10,6 +10,7 @@ namespace Project.Entities.Models
     {
         public string TypeName { get; set; }
         public string TypeDescription { get; set; }
+
         //Relations
         public virtual List<Maintenance> Maintenances { get; set; }
 
