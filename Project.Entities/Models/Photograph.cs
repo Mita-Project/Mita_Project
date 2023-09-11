@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project.Entities.Models
 {
-    public class Fotograph:BaseEntity
+    public class Photograph:BaseEntity
     {
         public string FilePath { get; set; }
 
