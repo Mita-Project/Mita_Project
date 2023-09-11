@@ -17,5 +17,8 @@ namespace Project.Entities.Models
         //Relations
         public virtual List<Gadget_ServiceRecord> Gadget_ServiceRecords { get; set; }
         public virtual List<Gadget_Maintenance> Gadget_Maintenances { get; set; }
+
+        public virtual GadgetType GadgetType { get; set; }
+        public int GadgetTypeId { get; set; }
     }
 }

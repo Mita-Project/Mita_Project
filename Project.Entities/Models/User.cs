@@ -38,6 +38,10 @@ namespace Project.Entities.Models
         public virtual List<User_Role> User_Roles { get; set; }
         public virtual List<ServiceRecord_User> ServiceRecord_Users { get; set; }
         public virtual List<Offer> Offers { get; set; }
+        public virtual List<Message> Messages { get; set; }
+
+        public virtual Team Team { get; set; }
+        public int TeamId { get; set; }
 
 
     }
