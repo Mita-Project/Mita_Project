@@ -22,5 +22,6 @@ namespace Project.Entities.Models
         public virtual List<Request> Requests { get; set; }
         public virtual List<ServiceRecord_Company> ServiceRecord_Companies { get; set; }
         public virtual List<Maintenance> Maintenances { get; set; }
+        public virtual List<Branch> Branches { get; set; }
     }
 }
