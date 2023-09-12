@@ -17,5 +17,8 @@ namespace Project.Entities.Models
 
         public virtual EMail EMail { get; set; }
         public int EMailId { get; set; }
+
+        public virtual Request Request { get; set; }
+        public int RequestId { get; set; }
     }
 }
