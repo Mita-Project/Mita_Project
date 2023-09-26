@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Project.MAP.Configurations
 {
-    public class Maintanence_Configuration:BaseConfiguration<Maintenance>
+    public class Maintenance_Configuration:BaseConfiguration<Maintenance>
     {
         public override void Configure(EntityTypeBuilder<Maintenance> builder)
         {
