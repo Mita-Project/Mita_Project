@@ -15,8 +15,11 @@ namespace Project.BLL.Service_Injections
         public static IServiceCollection AddDbContextService(this IServiceCollection services)
         {
             ServiceProvider provider=services.BuildServiceProvider();
+
             IConfiguration configuration=provider.GetService<IConfiguration>();
+
             services.AddDbContextPool<MyContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")).UseLazyLoadingProxies());
+
             return services;
         }
     }

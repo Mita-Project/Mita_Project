@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Project.MAP.Configurations;
 
 namespace Project.DAL.Context
 {
@@ -17,9 +18,39 @@ namespace Project.DAL.Context
 
         }
 
-        //todo: Seeding 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
 
-        //todo: Configurations
+            // todo: Seed
+
+            // Configurations(Mapping)
+
+            builder.ApplyConfiguration(new Branch_Configuration());
+            builder.ApplyConfiguration(new BranchType_Configuration());
+            builder.ApplyConfiguration(new Company_Configuration());
+            builder.ApplyConfiguration(new Document_Configuration());
+            builder.ApplyConfiguration(new EMail_Configuration());
+            builder.ApplyConfiguration(new Gadget_Configuration());
+            builder.ApplyConfiguration(new GadgetType_Configuration());
+            builder.ApplyConfiguration(new Gadget_Maintenance_Configuration());
+            builder.ApplyConfiguration(new Gadget_ServiceRecord_Configuration());
+            builder.ApplyConfiguration(new Maintenance_Configuration());
+            builder.ApplyConfiguration(new MaintenanceRecord_Configuration());
+            builder.ApplyConfiguration(new MaintenanceRecord_Material_Configuration());
+            builder.ApplyConfiguration(new MaintenanceType_Configuration());
+            builder.ApplyConfiguration(new Material_Configuration());
+            builder.ApplyConfiguration(new MaterialType_Configuration());
+            builder.ApplyConfiguration(new Message_Configuration());
+            builder.ApplyConfiguration(new Request_Configuration());
+            builder.ApplyConfiguration(new Role_Configuration());
+            builder.ApplyConfiguration(new ServiceRecord_Company_Configuration());
+            builder.ApplyConfiguration(new ServiceRecord_Material_Configuration());
+            builder.ApplyConfiguration(new ServiceRecord_User_Configuration());
+            builder.ApplyConfiguration(new Team_Configuration());
+            builder.ApplyConfiguration(new User_Configuration());
+            builder.ApplyConfiguration(new User_Role_Configuration());
+        }
 
         //DBSets
 
