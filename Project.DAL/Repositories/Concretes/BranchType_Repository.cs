@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Project.DAL.Repositories.Concretes
 {
-    public class BranchType_Repository : BaseRepository<BranchType> , IRepository<BranchType>
+    public class BranchType_Repository : BaseRepository<BranchType> , IBranchType_Repository
     {
         public BranchType_Repository(MyContext db) : base(db)
         {
