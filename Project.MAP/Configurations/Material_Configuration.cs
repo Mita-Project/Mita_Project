@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Project.MAP.Configurations
 {
-    public class Material_Configuraion : BaseConfiguration<Material>
+    public class Material_Configuration : BaseConfiguration<Material>
     {
         public override void Configure(EntityTypeBuilder<Material> builder)
         {
