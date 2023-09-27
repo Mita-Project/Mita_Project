@@ -15,9 +15,7 @@ namespace Project.MAP.Configurations
             base.Configure(builder);
 
             builder.HasMany(x => x.Materials)
-                .WithOne(x => x.MaterialType)
-                .HasForeignKey(x => x.MaterialTypeId)
-                .IsRequired();
+                .WithOne(x => x.MaterialType);
         }
     }
 }

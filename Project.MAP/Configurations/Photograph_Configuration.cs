@@ -8,28 +8,26 @@ using System.Threading.Tasks;
 
 namespace Project.MAP.Configurations
 {
-    public class Message_Configuration : BaseConfiguration<Message>
+    public class Photograph_Configuration : BaseConfiguration<Photograph>
     {
-        public override void Configure(EntityTypeBuilder<Message> builder)
+        public override void Configure(EntityTypeBuilder<Photograph> builder)
         {
             base.Configure(builder);
 
-            builder.HasOne(x => x.User)
-                .WithMany(x => x.Messages)
-                .HasForeignKey(x => x.UserId)
-                .IsRequired();
+            builder.HasOne(x => x.Request)
+                .WithMany(x => x.Photographs)
+                .HasForeignKey(x => x.RequestId)
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.ServiceRecord)
-                .WithMany(x => x.Messages)
+                .WithMany(x => x.Photographs)
                 .HasForeignKey(x => x.ServiceRecordId)
                 .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
-            builder.HasMany(x => x.Documents)
-                .WithOne(x => x.Message)
+            builder.HasOne(x => x.Message)
+                .WithMany(x => x.Photographs)
+                .HasForeignKey(x =>x.MessageId)
                 .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
-
-            builder.HasMany(x => x.Photographs)
-                .WithOne(x => x.Message);
         }
     }
 }

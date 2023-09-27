@@ -17,22 +17,24 @@ namespace Project.MAP.Configurations
             builder.HasOne(x => x.Company)
                 .WithMany(x => x.Maintenances)
                 .HasForeignKey(x => x.CompanyId)
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction)
                 .IsRequired();
 
             builder.HasMany(x => x.MaintenanceRecords)
-                .WithOne(x => x.Maintenance)
-                .HasForeignKey(x => x.MaintenanceId)
-                .IsRequired();
+                .WithOne(x => x.Maintenance);
 
             builder.HasMany(x => x.Gadget_Maintenances)
                 .WithOne(x => x.Maintenance)
-                .HasForeignKey(x => x.MaintenanceId)
                 .IsRequired();
 
             builder.HasOne(x => x.MaintenanceType)
                 .WithMany(x => x.Maintenances)
                 .HasForeignKey(x => x.MaintenanceTypeId)
                 .IsRequired();
+
+            builder.HasOne(x => x.Branch)
+                .WithOne(x => x.Maintenance)
+                .HasForeignKey<Maintenance>(x => x.BranchId);
         }
     }
 }

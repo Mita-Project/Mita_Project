@@ -20,7 +20,11 @@ namespace Project.Entities.Models
         public int UserId { get; set; }
 
         public virtual ServiceRecord ServiceRecord { get; set; }
+        public int ServiceRecordId { get; set; }
+
         public virtual Request Request { get; set; }
+        public int RequestId { get; set; }
+
         public virtual List<Offer_Company> Offer_Companies { get; set; }
     }
 }

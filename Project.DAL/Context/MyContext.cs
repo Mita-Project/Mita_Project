@@ -50,6 +50,9 @@ namespace Project.DAL.Context
             builder.ApplyConfiguration(new Team_Configuration());
             builder.ApplyConfiguration(new User_Configuration());
             builder.ApplyConfiguration(new User_Role_Configuration());
+            builder.ApplyConfiguration(new Offer_Configuration());
+            builder.ApplyConfiguration(new Offer_Company_Configuration());
+            builder.ApplyConfiguration(new Photograph_Configuration());
         }
 
         //DBSets
@@ -79,13 +82,5 @@ namespace Project.DAL.Context
         public DbSet<ServiceRecord_Material> ServiceRecord_Materials { get; set; }
         public DbSet<ServiceRecord_User> ServiceRecord_Users { get; set; }
         public DbSet<Team> Teams { get; set; }
-
-
-
-
-
-
-
-
     }
 }

@@ -15,9 +15,7 @@ namespace Project.MAP.Configurations
             base.Configure(builder);
 
             builder.HasMany(x => x.Gadgets)
-                .WithOne(x => x.GadgetType)
-                .HasForeignKey(x => x.GadgetTypeId)
-                .IsRequired();
+                .WithOne(x => x.GadgetType);
         }
     }
 }

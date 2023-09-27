@@ -15,9 +15,7 @@ namespace Project.MAP.Configurations
             base.Configure(builder);
 
             builder.HasMany(x => x.Maintenances)
-                .WithOne(x => x.MaintenanceType)
-                .HasForeignKey(x => x.MaintenanceTypeId)
-                .IsRequired();
+                .WithOne(x => x.MaintenanceType);
         }
     }
 }

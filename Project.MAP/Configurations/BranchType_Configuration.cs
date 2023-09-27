@@ -15,8 +15,7 @@ namespace Project.MAP.Configurations
             base.Configure(builder);
 
             builder.HasMany(x => x.Branches)
-                    .WithOne(x=>x.BranchType)
-                    .HasForeignKey(x=>x.BranchTypeId);
+                    .WithOne(x=>x.BranchType);
         }
     }
 }
