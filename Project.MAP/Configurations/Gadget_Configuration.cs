@@ -15,14 +15,10 @@ namespace Project.MAP.Configurations
             base.Configure(builder);
 
             builder.HasMany(x => x.Gadget_ServiceRecords)
-                .WithOne(x => x.Gadget)
-                .HasForeignKey(x => x.GadgetId)
-                .IsRequired();
+                .WithOne(x => x.Gadget);
 
             builder.HasMany(x => x.Gadget_Maintenances)
-                .WithOne(x => x.Gadget)
-                .HasForeignKey(x => x.GadgetId)
-                .IsRequired();
+                .WithOne(x => x.Gadget);
         }
     }
 }

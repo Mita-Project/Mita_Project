@@ -76,6 +76,11 @@ namespace Project.BLL.Service_Injections
             services.AddScoped<IServiceRecord_Manager, ServiceRecord_Manager>();
             services.AddScoped<IServiceRecord_Material_Manager, ServiceRecord_Material_Manager>();
             services.AddScoped<ITeam_Manager, Team_Manager>();
+            services.AddScoped<IRole_Manager, Role_Manager>();
+            services.AddScoped<IUser_Manager, User_Manager>();
+            services.AddScoped<IServiceRecord_User_Manager, ServiceRecord_User_Manager>();
+            services.AddScoped<IUser_Role_Manager, User_Role_Manager>();
+
             return services;
         }
     }

@@ -18,7 +18,8 @@ namespace Project.Entities.Models
         public bool Subcontractor_Exists { get; set; }
 
         //Relations
-        public virtual List<Photograph> Photographs { get; set; }
+        public virtual Offer Offer { get; set; }
+        public int OfferId { get; set; }
 
         public virtual Request Request { get; set; }
         public int RequestId { get; set; }
@@ -31,5 +32,6 @@ namespace Project.Entities.Models
         public virtual List<ServiceRecord_Company> ServiceRecord_Companies { get; set; }
         public virtual List<ServiceRecord_User> ServiceRecord_Users { get; set; }
         public virtual List<Message> Messages { get; set; }
+        public virtual List<Photograph> Photographs { get; set; }
     }
 }

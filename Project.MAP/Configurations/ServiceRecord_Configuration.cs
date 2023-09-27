@@ -16,10 +16,11 @@ namespace Project.MAP.Configurations
 
             builder.HasMany(x => x.Photographs)
                 .WithOne(x => x.ServiceRecord)
-                .HasForeignKey(x => x.ServiceRecordId);
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.Request)
-                .WithOne(x => x.ServiceRecord);
+                .WithOne(x => x.ServiceRecord)
+                .HasForeignKey<ServiceRecord>(x => x.RequestId);
 
             builder.HasOne(x => x.Team)
                 .WithMany(x => x.ServiceRecords)
@@ -28,23 +29,34 @@ namespace Project.MAP.Configurations
 
             builder.HasMany(x => x.EMail)
                 .WithOne(x => x.ServiceRecord)
-                .HasForeignKey(x => x.ServiceRecordId);
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.ServiceRecord_Materials)
                 .WithOne(x => x.ServiceRecord)
-                .HasForeignKey(x => x.ServiceRecordId);
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.ServiceRecord_Companies)
                 .WithOne(x => x.ServiceRecord)
-                .HasForeignKey(x => x.ServiceRecordId);
-                
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
+
+
             builder.HasMany(x => x.ServiceRecord_Users)
                 .WithOne(x => x.ServiceRecord)
-                .HasForeignKey (x => x.ServiceRecordId);
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.Messages)
                 .WithOne(x => x.ServiceRecord)
-                .HasForeignKey(x => x.ServiceRecordId);
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
+
+            builder.HasOne(x => x.Request)
+                .WithOne(x => x.ServiceRecord)
+                .HasForeignKey<ServiceRecord>(x => x.RequestId)
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
+
+            builder.HasOne(x => x.Offer)
+                .WithOne(x => x.ServiceRecord)
+                .HasForeignKey<ServiceRecord>(x => x.OfferId)
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
         }
     }
 }

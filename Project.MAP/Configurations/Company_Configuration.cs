@@ -16,13 +16,13 @@ namespace Project.MAP.Configurations
 
             builder.HasMany(x => x.Requests)
                 .WithOne(x => x.Company)
-                .HasForeignKey(x => x.CompanyId)
-                .IsRequired();
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.ServiceRecord_Companies)
-                .WithOne(x => x.Company)
-                .HasForeignKey(x => x.CompanyId)
-                .IsRequired();
+                .WithOne(x => x.Company);
+
+            builder.HasMany(x => x.Maintenances)
+                .WithOne(x => x.Company);
         }
     }
 }

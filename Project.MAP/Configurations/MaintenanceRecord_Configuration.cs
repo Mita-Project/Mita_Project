@@ -25,9 +25,7 @@ namespace Project.MAP.Configurations
                 .IsRequired();
 
             builder.HasMany(x => x.MaintananceRecord_Materials)
-                .WithOne(x => x.MaintenanceRecord)
-                .HasForeignKey(x => x.MaintenanceRecordId)
-                .IsRequired();
+                .WithOne(x => x.MaintenanceRecord);
         }
     }
 }

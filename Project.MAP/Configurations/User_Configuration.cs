@@ -22,18 +22,14 @@ namespace Project.MAP.Configurations
 
             builder.HasMany(x => x.User_Roles)
                 .WithOne(x => x.User)
-                .HasForeignKey(x => x.UserId)
-                .IsRequired();
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.ServiceRecord_Users)
                 .WithOne(x => x.User)
-                .HasForeignKey(x => x.UserId)
-                .IsRequired();
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.Offers)
-                .WithOne(x => x.User)
-                .HasForeignKey(x => x.UserId)
-                .IsRequired();
+                .WithOne(x => x.User);
 
             builder.HasOne(x => x.Team)
                 .WithMany(x => x.Users)

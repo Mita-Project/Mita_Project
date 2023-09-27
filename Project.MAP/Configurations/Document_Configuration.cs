@@ -17,7 +17,16 @@ namespace Project.MAP.Configurations
             builder.HasOne(x => x.Message)
                 .WithMany(x => x.Documents)
                 .HasForeignKey(x => x.MessageId)
-                .IsRequired();
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
+
+            builder.HasOne(x => x.EMail)
+                .WithMany(x => x.Documents)
+                .HasForeignKey(x => x.EMailId);
+
+            builder.HasOne(x => x.Request)
+                .WithMany(x => x.Documents)
+                .HasForeignKey(x => x.RequestId)
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
         }
     }
 }
