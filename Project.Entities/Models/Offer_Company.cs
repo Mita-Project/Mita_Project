@@ -8,7 +8,10 @@ namespace Project.Entities.Models
 {
     public class Offer_Company:BaseEntity
     {
-        public virtual List<Offer> Offers { get; set; }
-        public virtual List<Company> Companies { get; set; }
+        public virtual Offer Offer { get; set; }
+        public int OfferId { get; set; }
+
+        public virtual Company Company { get; set; }
+        public int CompanyId { get; set; }
     }
 }

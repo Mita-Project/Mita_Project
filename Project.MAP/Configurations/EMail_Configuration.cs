@@ -15,9 +15,7 @@ namespace Project.MAP.Configurations
             base.Configure(builder);
 
             builder.HasMany(x => x.Documents)
-                .WithOne(x => x.EMail)
-                .HasForeignKey(x => x.EMailId)
-                .IsRequired();
+                .WithOne(x => x.EMail);
         }
     }
 }

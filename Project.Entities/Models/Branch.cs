@@ -18,7 +18,7 @@ namespace Project.Entities.Models
         public int CompanyId { get; set; }
 
         public virtual Maintenance Maintenance { get; set; }
-        public int MaintenanceId { get; set; }
+        public virtual int MaintenanceId { get; set; }
 
         public virtual BranchType BranchType { get; set; }
         public int BranchTypeId { get; set; }

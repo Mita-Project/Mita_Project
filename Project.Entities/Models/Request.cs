@@ -8,12 +8,15 @@ namespace Project.Entities.Models
 {
     public class Request:BaseEntity
     {
-        public virtual List<Photograph> Photographs { get; set; }
+        
 
         public string RequestTopic { get; set; }
         public string RequestDescription { get; set; }
 
         //Relations
+        public virtual Offer Offer { get; set; }
+        public int OfferId { get; set; }
+
         public virtual Company Company { get; set; }
         public int CompanyId { get; set; }
 
@@ -28,6 +31,7 @@ namespace Project.Entities.Models
         public int TeamId { get; set; }
 
         public virtual List<Document> Documents { get; set; }
+        public virtual List<Photograph> Photographs { get; set; }
 
     }
 }

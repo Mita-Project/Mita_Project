@@ -20,11 +20,11 @@ namespace Project.MAP.Configurations
                 .IsRequired();
 
             builder.HasOne(x => x.Maintenance)
-                .WithOne(x => x.Branch);
+                .WithOne(x => x.Branch)
+                .HasForeignKey<Branch>(x => x.MaintenanceId);
 
             builder.HasMany(x => x.Requests)
-                .WithOne(x => x.Branch)
-                .HasForeignKey(x => x.BranchId);
+                .WithOne(x => x.Branch);
                 
             builder.HasOne(x=>x.BranchType)
                 .WithMany(x => x.Branches)

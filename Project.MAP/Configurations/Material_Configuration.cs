@@ -20,14 +20,10 @@ namespace Project.MAP.Configurations
                 .IsRequired();
 
             builder.HasMany(x => x.MaintenanceRecord_Materials)
-                .WithOne(x => x.Material)
-                .HasForeignKey(x => x.MaterialId)
-                .IsRequired();
+                .WithOne(x => x.Material);
 
             builder.HasMany(x => x.ServiceRecord_Materials)
-                .WithOne(x => x.Material)
-                .HasForeignKey(x => x.MaterialId)
-                .IsRequired();
+                .WithOne(x => x.Material);
         }
     }
 }

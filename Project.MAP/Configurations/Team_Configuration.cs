@@ -15,20 +15,17 @@ namespace Project.MAP.Configurations
             base.Configure(builder);
 
             builder.HasMany(x => x.Users)
-                .WithOne(x => x.Team)
-                .HasForeignKey(x => x.TeamId);
+                .WithOne(x => x.Team);
 
             builder.HasMany(x => x.Requests)
                 .WithOne(x => x.Team)
-                .HasForeignKey(x => x.TeamId);
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.MaintenanceRecords)
-                .WithOne(x => x.Team)
-                .HasForeignKey(x => x.TeamId);
+                .WithOne(x => x.Team);
 
             builder.HasMany(x => x.ServiceRecords)
-                .WithOne(x => x.Team)
-                .HasForeignKey(x => x.TeamId);
+                .WithOne(x => x.Team);
         }
     }
 }
