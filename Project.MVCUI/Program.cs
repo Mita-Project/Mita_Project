@@ -31,7 +31,7 @@ app.UseAuthorization();
 app.MapAreaControllerRoute(
     name: "MyAreaSuperAdmin",
     areaName: "SuperAdmin",
-    pattern: "SuperAdmin/{controller=Home}/{action=Index}/{id?}");
+    pattern: "SuperAdmin/{controller=Admin}/{action=Index}/{id?}");
 
 // Default Route
 
