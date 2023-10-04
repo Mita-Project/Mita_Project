@@ -1,0 +1,36 @@
+﻿@using Project.MVCUI.Areas.SuperAdmin.Models.ViewModels;
+@model RoleVM;
+
+<link href="~/css/CenterDiv.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="centered-div">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Yeni Kullanıcı Rolü Oluşturma</h3>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Rol Adı</label>
+                        <input id="myInput" autocomplete="off" asp-for="Name" type="text" class="form-control" placeholder="Rol Adı">
+                        <span style="color:red" asp-validation-for="Name"></span>
+                        @if (TempData["ExtTypeName"] != null)
+                        {
+                            <span style="color:red">@TempData["ExtTypeName"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label>Rol Açıklaması</label>
+                        <input id="myInput" autocomplete="off" asp-for="Role_Exp" type="text" class="form-control" placeholder="Rol Açıklaması">
+                        <span style="color:red" asp-validation-for="Role_Exp"></span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button onclick="checkInput()" type="submit" class="btn btn-primary">Kullanıcı Rolü Oluştur</button>
+                    <button asp-area="SuperAdmin" asp-controller="Role" asp-action="Index" class="btn btn-primary" style="float:right">Geri</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
