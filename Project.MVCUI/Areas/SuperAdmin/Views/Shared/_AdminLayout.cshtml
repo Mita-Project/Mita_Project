@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mita Enerji</title>
   <link rel="icon" href="~/images/mita-logok.ico" type="image/x-icon" >
-
+  <!--DataTables-->
+  <link href="~/css/datatablecss/datatables.min.css" rel="stylesheet" />
+  <link href="https://cdn.datatables.net/v/dt/dt-1.13.6/datatables.min.css" rel="stylesheet">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
@@ -214,6 +216,13 @@
 
 <!-- ChartJS -->
 <script src="~/js/Chart.js"></script>
-
+<!--DataTableJS-->
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.6/datatables.min.js"></script>
+<script src="~/datatable/datatables.min.js"></script>
+<script src="~/js/datatable.file.js"></script>
+@RenderSection("Scripts", required: false)
 </body>
 </html>
+
+
+
