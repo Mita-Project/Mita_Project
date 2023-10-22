@@ -1,0 +1,37 @@
+﻿@using Project.MVCUI.Areas.SuperAdmin.Models.ViewModels;
+@model MaterialTypeVM
+
+<link href="~/css/CenterDiv.css" rel="stylesheet" type="text/css" />
+
+<div class="container">
+    <div class="centered-div">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Malzeme Tipi Güncelleme Ekranı</h3>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="col-md-3">Tip Adı</label>
+                        <input autocomplete="off" asp-for="TypeName" type="text" class="form-control" value="@Model.TypeName" placeholder="@Model.TypeName">
+                        <span style="color:red" asp-validation-for="TypeName"></span>
+                        @if (TempData["extTypeName"] != null)
+                        {
+                            <span style="color:red">@TempData["extTypeName"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">Tip Açıklaması</label>
+                        <input autocomplete="off" asp-for="TypeDescription" type="text" class="form-control" value="@Model.TypeDescription" placeholder="@Model.TypeDescription">
+                        <span style="color:red" asp-validation-for="TypeDescription"></span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Cihaz Tipi Güncelle</button>
+                    <button asp-area="SuperAdmin" asp-controller="MaterialType" asp-action="Index" class="btn btn-primary" style="float:right">Geri</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

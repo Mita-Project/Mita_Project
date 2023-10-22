@@ -1,0 +1,55 @@
+﻿@using Project.MVCUI.Areas.SuperAdmin.Models.ViewModels;
+@model GadgetVM
+
+<link href="~/css/CenterDiv.css" rel="stylesheet" type="text/css" />
+
+<div class="container">
+    <div class="centered-div">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Cihaz Güncelleme Ekranı</h3>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="col-md-3">Marka Adı</label>
+                        <input autocomplete="off" asp-for="Brand" type="text" class="form-control" value="@Model.Brand" placeholder="@Model.Brand">
+                        <span style="color:red" asp-validation-for="Brand"></span>
+                        @if (TempData["extBrand"] != null)
+                        {
+                            <span style="color:red">@TempData["extBrand"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">Model Adı</label>
+                        <input autocomplete="off" asp-for="Model" type="text" class="form-control" value="@Model.Model" placeholder="@Model.Model">
+                        <span style="color:red" asp-validation-for="Model"></span>
+                        @if (TempData["extModel"] != null)
+                        {
+                            <span style="color:red">@TempData["extModel"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">Seri Numarası</label>
+                        <input autocomplete="off" asp-for="SerialNumber" type="text" class="form-control" value="@Model.SerialNumber" placeholder="@Model.SerialNumber">
+                        <span style="color:red" asp-validation-for="SerialNumber"></span>
+                        @if (TempData["extSerialNumber"] != null)
+                        {
+                            <span style="color:red">@TempData["extSerialNumber"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">Cihaz Gücü(KW)</label>
+                        <input autocomplete="off" asp-for="KW_Power" type="number" class="form-control" value="@Model.KW_Power" placeholder="@Model.KW_Power">
+                        <span style="color:red" asp-validation-for="KW_Power"></span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Cihaz Güncelle</button>
+                    <button asp-area="SuperAdmin" asp-controller="Gadget" asp-action="Index" class="btn btn-primary" style="float:right">Geri</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
