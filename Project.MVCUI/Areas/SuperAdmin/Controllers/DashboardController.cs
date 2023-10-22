@@ -2,7 +2,8 @@
 
 namespace Project.MVCUI.Areas.SuperAdmin.Controllers
 {
-    public class AdminController : Controller
+    [Area("SuperAdmin")]
+    public class DashboardController : Controller
     {
         public IActionResult Index()
         {
