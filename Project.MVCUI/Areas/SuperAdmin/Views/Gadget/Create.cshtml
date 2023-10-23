@@ -1,0 +1,53 @@
+﻿@using Project.MVCUI.Areas.SuperAdmin.Models.ViewModels;
+@model GadgetVM;
+
+<link href="~/css/CenterDiv.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="centered-div">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Yeni Cihaz Oluşturma</h3>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Marka Adı</label>
+                        <input id="myInput" autocomplete="off" asp-for="Brand" type="text" class="form-control" placeholder="Marka Adı">
+                        <span style="color:red" asp-validation-for="Brand"></span>
+                        @if (TempData["extBrand"] != null)
+                        {
+                            <span style="color:red">@TempData["extBrand"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label>Model Adı</label>
+                        <input id="myInput" autocomplete="off" asp-for="Model" type="text" class="form-control" placeholder="Model Adı">
+                        <span style="color:red" asp-validation-for="Model"></span>
+                        @if (TempData["extModel"] != null)
+                        {
+                            <span style="color:red">@TempData["extModel"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label>Seri Numarası</label>
+                        <input id="myInput" autocomplete="off" asp-for="SerialNumber" type="text" class="form-control" placeholder="Seri Numarası" />
+                        @if (TempData["extSerialNumber"] != null)
+                        {
+                            <span style="color:red">@TempData["extSerialNumber"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label>Cihaz Gücü</label>
+                        <input id="myInput" autocomplete="off" asp-for="KW_Power" type="number" class="form-control" placeholder="Cihaz Gücü" />
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button onclick="checkInput()" type="submit" class="btn btn-primary">Cihaz Oluştur</button>
+                    <button asp-area="SuperAdmin" asp-controller="Gadget" asp-action="Index" class="btn btn-primary" style="float:right">Geri</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
