@@ -1,0 +1,36 @@
+﻿@using Project.MVCUI.Areas.SuperAdmin.Models.ViewModels;
+@model GadgetTypeVM;
+
+<link href="~/css/CenterDiv.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="centered-div">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Yeni Cihaz Tipi Oluşturma</h3>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Tip Adı</label>
+                        <input id="myInput" autocomplete="off" asp-for="TypeName" type="text" class="form-control" placeholder="Tip Adı">
+                        <span style="color:red" asp-validation-for="TypeName"></span>
+                        @if (TempData["extTypeName"] != null)
+                        {
+                            <span style="color:red">@TempData["extTypeName"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label>Tip Açıklaması</label>
+                        <input id="myInput" autocomplete="off" asp-for="TypeDescription" type="text" class="form-control" placeholder="Tip Açıklaması">
+                        <span style="color:red" asp-validation-for="TypeDescription"></span>
+                    </div>
+                <div class="card-footer">
+                    <button onclick="checkInput()" type="submit" class="btn btn-primary">Cihaz Tipi Oluştur</button>
+                    <button asp-area="SuperAdmin" asp-controller="GadgetType" asp-action="Index" class="btn btn-primary" style="float:right">Geri</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

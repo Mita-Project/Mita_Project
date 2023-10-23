@@ -1,0 +1,58 @@
+﻿@using Project.MVCUI.Areas.SuperAdmin.Models.ViewModels;
+@model MaterialVM;
+
+<link href="~/css/CenterDiv.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="centered-div">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Yeni Malzeme Oluşturma</h3>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Marka Adı</label>
+                        <input id="myInput" autocomplete="off" asp-for="Brand" type="text" class="form-control" placeholder="Marka Adı">
+                        <span style="color:red" asp-validation-for="Brand"></span>
+                        @if (TempData["extBrand"] != null)
+                        {
+                            <span style="color:red">@TempData["extBrand"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label>Model Adı</label>
+                        <input id="myInput" autocomplete="off" asp-for="Model" type="text" class="form-control" placeholder="Model Adı">
+                        <span style="color:red" asp-validation-for="Model"></span>
+                        @if(TempData["extModel"]!= null)
+                        {
+                            <span style="color:red">@TempData["extModel"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label>Malzeme Fiyatı</label>
+                        <input id="myInput" autocomplete="off" asp-for="Price" type="number" class="form-control" placeholder="Malzeme Fiyatı(Küsaratı '.' dan sonra giriniz." />
+                        @if(TempData["extPrice"]!= null)
+                        {
+                            @*todo: Ondalıklı sayı girilmiyor.*@
+                            <span style="color:red">@TempData["extPrice"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label>Malzeme Adeti</label>
+                        <input id="myInput" autocomplete="off" asp-for="Amount" type="number" class="form-control" placeholder="Malzeme Miktarı" />
+                        @if (TempData["extAmount"] != null)
+                        {
+                            <span style="color:red">@TempData["extAmount"]</span>
+                        }
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button onclick="checkInput()" type="submit" class="btn btn-primary">Malzeme Oluştur</button>
+                    <button asp-area="SuperAdmin" asp-controller="Material" asp-action="Index" class="btn btn-primary" style="float:right">Geri</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
