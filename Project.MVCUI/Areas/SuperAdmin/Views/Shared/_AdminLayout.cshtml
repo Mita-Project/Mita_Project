@@ -8,7 +8,8 @@
   <link rel="icon" href="~/images/mita-logok.ico" type="image/x-icon" >
   <!--DataTables-->
   <link href="~/css/datatablecss/datatables.min.css" rel="stylesheet" />
-  <link href="https://cdn.datatables.net/v/dt/dt-1.13.6/datatables.min.css" rel="stylesheet">
+  <link href="~/css/lengthmenu_color.css" rel="stylesheet" />
+  <link href="~/css/searchbardt.css" rel="stylesheet" />
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
@@ -109,7 +110,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-                <a asp-area="SuperAdmin" asp-controller="Home" asp-action="Index" class="nav-link">
+                <a asp-area="SuperAdmin" asp-controller="Dashboard" asp-action="Index" class="nav-link">
                     <i class="nav-icon fas fa-home"></i>
                     <p>
                         Yönetim Paneli
@@ -117,30 +118,39 @@
                 </a>
             </li>
 
-            <!-- Sistem Tanımları -->
+            <!-- Kullanıcı İşlemleri -->
 
             <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="nav-icon fas fa-bars"></i>
                     <p>
-                        Sistem Tanımları
+                        Kullanıcı
                         <i class="fas fa-angle-left right"></i>
                     </p>
                 </a>
-                <ul class="nav-treeview">
-                    <li>
-                        <a asp-area="SuperAdmin" asp-controller="User" asp-action="Index" class="nav-link">
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a asp-area="SuperAdmin" asp-controller="User" class="nav-link">
                             <i class="fas fa-user nav-icon"></i>
                             <p>Kullanıcı İşlemleri</p>
                         </a>
                     </li>
                 </ul>
 
-                <ul class="nav-treeview">
-                    <li>
-                        <a asp-area="SuperAdmin" asp-controller="Role" asp-action="Index" class="nav-link">
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a asp-area="SuperAdmin" asp-controller="Role" class="nav-link">
                             <i class="fas fa-users nav-icon"></i>
                             <p>Kullanıcı Rol İşlemleri</p>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a asp-area="SuperAdmin" asp-controller="Dashboard" class="nav-link">
+                            <i class="fas fa-users nav-icon"></i>
+                            <p>Ekip İşlemleri</p>
                         </a>
                     </li>
                 </ul>
@@ -174,26 +184,6 @@
 
 <!-- REQUIRED SCRIPTS -->
 
-<!-- For Treeview -->
-<script>
-    $(document).ready(function () {
-        var url = window.location;
-
-        $('ul.nav-sidebar a').filter(function () {
-
-            if (this.href) {
-
-                return this.href == url;
-
-            }
-
-        }).addClass('active').parents('.nav-item').addClass('menu-is-opening menu-open');
-
-
-
-    })
-</script>
-
 <!-- jQuery -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
@@ -217,6 +207,27 @@
 
 <!-- ChartJS -->
 <script src="~/js/Chart.js"></script>
+
+<!-- For Treeview -->
+<script>
+    $(document).ready(function () {
+        var url = window.location;
+
+        $('ul.nav-sidebar a').filter(function () {
+
+            if (this.href) {
+
+                return this.href == url;
+
+            }
+
+        }).addClass('active').parents('.nav-item').addClass('menu-is-opening menu-open');
+
+
+
+    })
+</script>
+
 <!--DataTableJS-->
 <script src="https://cdn.datatables.net/v/dt/dt-1.13.6/datatables.min.js"></script>
 <script src="~/datatable/datatables.min.js"></script>
