@@ -96,12 +96,14 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
             }
             return View(role);
         }
+
         //Delete
+
         [HttpGet]
-        public IActionResult Delete(int id) 
+        public async Task<IActionResult> Delete(int id) 
         {
-            var data=_manager.Find(id);
-            _manager.Delete(data);
+            var data = _manager.Find(id);
+            var result = _roleManager.DeleteAsync(data);
             return RedirectToAction("Index");   
         }
 

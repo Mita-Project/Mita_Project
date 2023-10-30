@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace Project.MVCUI.Areas.SuperAdmin.Models.ViewModels
 {
@@ -16,6 +17,8 @@ namespace Project.MVCUI.Areas.SuperAdmin.Models.ViewModels
         public decimal Price { get; set; }
         [Required(ErrorMessage = "Miktar boş geçilemez !")]
         public int Amount { get; set; }
+        public IEnumerable<SelectListItem> materialTypes { get; set; }
+        public int MaterialTypeID { get; set; }
 
     }
 }
