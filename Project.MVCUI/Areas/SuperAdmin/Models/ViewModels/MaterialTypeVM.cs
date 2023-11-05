@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Project.Entities.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Project.MVCUI.Areas.SuperAdmin.Models.ViewModels
 {
@@ -9,5 +10,6 @@ namespace Project.MVCUI.Areas.SuperAdmin.Models.ViewModels
         public string TypeName { get; set; }
         [Required(ErrorMessage = "Tip açıklaması boş geçilemez !")]
         public string TypeDescription { get; set; }
+
     }
 }

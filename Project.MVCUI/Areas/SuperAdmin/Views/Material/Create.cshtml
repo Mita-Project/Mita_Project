@@ -46,6 +46,20 @@
                             <span style="color:red">@TempData["extAmount"]</span>
                         }
                     </div>
+                    <div class="form-group">
+                        <label>Malzeme Tipi</label>
+                        @if(Model.materialTypes != null)
+                        {
+                            <select id="myInput" asp-for="MaterialTypeID" asp-items="@Model.materialTypes" class="form-control">
+                                <option selected="" disabled>Lütfen Bir Tip Seçiniz</option>
+                            </select>
+                        }
+                        else
+                        {
+                            TempData["extMaterialTypes"] = "Malzeme tipleri sisteme bildirilmemiş.\nLütfen ilk önce malzeme tiplerini sisteme bildiriniz.";
+                            <span style="color:yellow">@TempData["extMaterialTypes"]</span>
+                        }
+                    </div>
                 </div>
                 <div class="card-footer">
                     <button onclick="checkInput()" type="submit" class="btn btn-primary">Malzeme Oluştur</button>

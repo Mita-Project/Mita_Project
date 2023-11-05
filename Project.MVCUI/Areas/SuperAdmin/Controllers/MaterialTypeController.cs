@@ -40,10 +40,10 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
                 var actives = _manager.GetActives();
                 foreach (var types in actives)
                 {
-                    if (_type.TypeName.ToUpper() == type.TypeName.ToUpper())
+                    if (_type.TypeName.ToUpper() == types.TypeName.ToUpper())
                     {
                         TempData["extTypeName"] = "Bu tip zaten oluşturulmuş.";
-                        return View(type);
+                        return View(types);
                     }
 
                 }

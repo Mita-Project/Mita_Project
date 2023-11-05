@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Identity.Client;
 using Project.BLL.Manager_Services.Abstracts;
 using Project.BLL.Manager_Services.Concretes;
 using Project.Entities.Models;
@@ -10,10 +12,12 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
     public class MaterialController : Controller
     {
         private readonly IMaterial_Manager _manager;
+        private readonly IMaterialType_Manager _typeManager;
         
-        public MaterialController(IMaterial_Manager manager)
+        public MaterialController(IMaterial_Manager manager, IMaterialType_Manager type_Manager)
         {
             _manager = manager;
+            _typeManager = type_Manager;
         }
         //List
         public IActionResult Index()
@@ -24,20 +28,38 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
         //Create
         public IActionResult Create() 
         {
-            return View();
+            MaterialVM _MaterialVM = new MaterialVM();
+
+            List<SelectListItem> listItems = new List<SelectListItem>();
+
+            foreach (var data in _typeManager.GetActives())
+            {
+                SelectListItem listItem = new SelectListItem()
+                {
+                    Value = data.ID.ToString(),
+                    Text = data.TypeName
+                };
+
+                listItems.Add(listItem);
+            }
+
+            _MaterialVM.materialTypes = listItems;
+
+            return View(_MaterialVM);
         }
         [HttpPost]
         public IActionResult Create(MaterialVM material)
         {
-            
+
             if(ModelState.IsValid)
             {
-                Material _material = new Material() { 
-                
-                    Brand=material.Brand,
-                    Model=material.Model,
-                    Price=material.Price,
-                    Amount=material.Amount
+                Material _material = new Material() {
+
+                    Brand = material.Brand,
+                    Model = material.Model,
+                    Price = material.Price,
+                    Amount = material.Amount,
+                    MaterialType = _typeManager.Find(material.MaterialTypeID)
                 
                 };
                 var actives= _manager.GetActives();
