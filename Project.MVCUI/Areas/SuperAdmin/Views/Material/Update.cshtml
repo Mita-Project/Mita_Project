@@ -47,6 +47,13 @@
                             <span style="color:red">@TempData["extAmount"]</span>
                         }
                     </div>
+                    <div class="form-group">
+                        <label class="col-md-3">Malzeme Tipi</label>
+                        <select id="myInput" asp-for="MaterialTypeID" asp-items="@Model.materialTypes" class="form-control">
+                            <option selected="@Model.MaterialTypeID" disabled>Lütfen Bir Tip Seçiniz</option>
+                        </select>
+                        <span style="color:red" asp-validation-for="Amount"></span>
+                    </div>
                 </div>
 
                 <div class="card-footer">
