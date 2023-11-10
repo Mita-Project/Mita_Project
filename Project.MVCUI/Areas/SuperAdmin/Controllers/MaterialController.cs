@@ -70,7 +70,7 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
                         TempData["extBrand"] = "Bu marka zaten oluşturulmuş.";
                         return View(material);
                     }
-                    else if(_material.Model.ToUpper() == material.Model.ToUpper())
+                    if(_material.Model.ToUpper() == material.Model.ToUpper())
                     {
                         //todo: Modeller aynı olabiliyo mu olamıyo mu diye sorulacak?
                         TempData["extModel"] = "Bu model zaten oluşturulmuş.";
