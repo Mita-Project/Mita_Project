@@ -21,6 +21,7 @@
                                 <th class="cm-strong">Model Adı</th>
                                 <th class="cm-strong">Fiyat</th>
                                 <th class="cm-strong">Miktar</th>
+                                <th class="cm-strong">Tipi</th>
                                 <td style="text-align:center;" class="cm-strong">İşlemler</td>
                             </tr>
                         </thead>
@@ -35,6 +36,7 @@
                                         <td>@material.Model</td>
                                         <td>@material.Price</td>
                                         <td>@material.Amount</td>
+                                        <td>@material.MaterialType.TypeName</td>
                                         <td style="text-align:center;">
                                             <a asp-area="SuperAdmin" asp-controller="Material" asp-action="Update" asp-route-id="@material.ID" class="btn btn-xs btn-warning">Güncelle</a>
                                           

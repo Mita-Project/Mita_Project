@@ -84,10 +84,24 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
                 return RedirectToAction("Index");
                 
             }
-            else
+
+            List<SelectListItem> listItems = new List<SelectListItem>();
+
+            foreach (var data in _typeManager.GetActives())
             {
-                return View(material);
+                SelectListItem listItem = new SelectListItem()
+                {
+                    Value = data.ID.ToString(),
+                    Text = data.TypeName
+                };
+
+                listItems.Add(listItem);
             }
+
+            material.materialTypes = listItems;
+
+            return View(material);
+            
             
         }
         // Update
@@ -95,13 +109,29 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
         {
             var material = _manager.Find(id);
 
-            MaterialVM materialVM = new MaterialVM() 
+            List<SelectListItem> listItems = new List<SelectListItem>();
+
+            foreach (var data in _typeManager.GetActives())
             {
-                Id=material.ID,
+                SelectListItem listItem = new SelectListItem()
+                {
+                    Value = data.ID.ToString(),
+                    Text = data.TypeName
+                };
+
+                listItems.Add(listItem);
+            }
+
+            MaterialVM materialVM = new MaterialVM()
+            {
+                Id = material.ID,
                 Brand = material.Brand,
                 Model = material.Model,
                 Price = material.Price,
-                Amount = material.Amount
+                Amount = material.Amount,
+                MaterialName = material.MaterialType.TypeName,
+                materialTypes = listItems,
+                MaterialTypeID = material.MaterialType.ID
             };
 
             return View(materialVM);
@@ -118,19 +148,21 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
                     Brand = materialVM.Brand,
                     Model = materialVM.Model,
                     Price = materialVM.Price,
-                    Amount = materialVM.Amount
+                    Amount = materialVM.Amount,
+                    MaterialTypeId = materialVM.MaterialTypeID
                 };
 
                 var materials = _manager.GetActives();
 
                 foreach (var material in materials)
                 {
-                    if(_material.Brand.ToUpper() == material.Brand.ToUpper())
+                    if(_material.Brand.ToUpper() == material.Brand.ToUpper() && _material.ID != materialVM.Id)
                     {
                         TempData["extBrand"] = "Bu marka zaten oluşturulmuş.";
                         return View(materialVM);
                     }
-                    else if (_material.Model.ToUpper() == material.Model.ToUpper())
+                    
+                    if (_material.Model.ToUpper() == material.Model.ToUpper() && _material.ID != materialVM.Id)
                     {
                         //todo: Modeller aynı olabiliyo mu olamıyo mu diye sorulacak?
                         TempData["extModel"] = "Bu model zaten oluşturulmuş.";
@@ -144,6 +176,21 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
 
                 return RedirectToAction("Index");
             }
+
+            List<SelectListItem> listItems = new List<SelectListItem>();
+
+            foreach (var data in _typeManager.GetActives())
+            {
+                SelectListItem listItem = new SelectListItem()
+                {
+                    Value = data.ID.ToString(),
+                    Text = data.TypeName
+                };
+
+                listItems.Add(listItem);
+            }
+
+            materialVM.materialTypes = listItems;
 
             return View(materialVM);
         }
