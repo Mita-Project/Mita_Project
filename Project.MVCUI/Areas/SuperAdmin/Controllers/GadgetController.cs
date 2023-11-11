@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Project.BLL.Manager_Services.Abstracts;
 using Project.Entities.Models;
 using Project.MVCUI.Areas.SuperAdmin.Models.ViewModels;
@@ -9,10 +10,12 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
     public class GadgetController : Controller
     {
         private readonly IGadget_Manager _manager;
+        private readonly IGadgetType_Manager _managerType;
 
-        public GadgetController(IGadget_Manager manager)
+        public GadgetController(IGadget_Manager manager, IGadgetType_Manager managerType)
         {
             _manager = manager;
+            _managerType = managerType;
         }
         //List
         public IActionResult Index()
@@ -23,7 +26,20 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
         //Create
         public IActionResult Create()
         {
-            return View();
+            GadgetVM _GadgetVM = new GadgetVM();
+            List<SelectListItem> listItems = new List<SelectListItem>();
+            foreach (var data in _managerType.GetActives())
+            {
+                SelectListItem listItem = new SelectListItem()
+                {
+                    Value = data.ID.ToString(),
+                    Text = data.TypeName
+                };
+
+                listItems.Add(listItem);
+            }
+            _GadgetVM.gadgetTypes = listItems;
+            return View(_GadgetVM);
         }
         [HttpPost]
         public IActionResult Create(GadgetVM gadget)
@@ -37,7 +53,8 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
                     Brand = gadget.Brand,
                     Model = gadget.Model,
                     SerialNumber = gadget.SerialNumber,
-                    KW_Power = gadget.KW_Power
+                    KW_Power = gadget.KW_Power,
+                    GadgetType= _managerType.Find(gadget.GadgetTypeID)
 
                 };
                 var actives = _manager.GetActives();
@@ -48,13 +65,13 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
                         TempData["extBrand"] = "Bu marka zaten oluşturulmuş.";
                         return View(gadget);
                     }
-                    else if (_gadget.Model.ToUpper() == gadget.Model.ToUpper())
+                    if (_gadget.Model.ToUpper() == gadget.Model.ToUpper())
                     {
                         //todo: Modeller aynı olabiliyo mu olamıyo mu diye sorulacak?
                         TempData["extModel"] = "Bu model zaten oluşturulmuş.";
                         return View(gadget);
                     }
-                    else if(_gadget.SerialNumber==gadget.SerialNumber)
+                    if(_gadget.SerialNumber==gadget.SerialNumber)
                     {
                         TempData["extSerialNumber"] = "Bu seri numarası zaten mevcut";
                         return View(gadget);
@@ -67,16 +84,37 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
                 return RedirectToAction("Index");
 
             }
-            else
+            List<SelectListItem> listItems = new List<SelectListItem>();
+            foreach (var data in _managerType.GetActives())
             {
-                return View(gadget);
+                SelectListItem listItem = new SelectListItem()
+                {
+                    Value = data.ID.ToString(),
+                    Text = data.TypeName
+                };
+
+                listItems.Add(listItem);
             }
+            gadget.gadgetTypes = listItems;
+            return View(gadget);
 
         }
         // Update
         public IActionResult Update(int id)
         {
             var gadget = _manager.Find(id);
+            List<SelectListItem> listItems = new List<SelectListItem>();
+
+            foreach (var data in _managerType.GetActives())
+            {
+                SelectListItem listItem = new SelectListItem()
+                {
+                    Value = data.ID.ToString(),
+                    Text = data.TypeName
+                };
+
+                listItems.Add(listItem);
+            }
 
             GadgetVM gadgetVM = new GadgetVM()
             {
@@ -84,7 +122,10 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
                 Brand = gadget.Brand,
                 Model = gadget.Model,
                 SerialNumber = gadget.SerialNumber,
-                KW_Power = gadget.KW_Power
+                KW_Power = gadget.KW_Power,
+                GadgetName=gadget.GadgetType.TypeName,
+                gadgetTypes=listItems,
+                GadgetTypeID=gadget.GadgetType.ID
             };
 
             return View(gadgetVM);
@@ -101,25 +142,26 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
                     Brand = gadgetVM.Brand,
                     Model = gadgetVM.Model,
                     SerialNumber = gadgetVM.SerialNumber,
-                    KW_Power = gadgetVM.KW_Power
+                    KW_Power = gadgetVM.KW_Power,
+                    GadgetTypeId=gadgetVM.GadgetTypeID
                 };
 
                 var gadgets = _manager.GetActives();
 
                 foreach (var gadget in gadgets)
                 {
-                    if (_gadget.Brand.ToUpper() == gadget.Brand.ToUpper())
+                    if (_gadget.Brand.ToUpper() == gadget.Brand.ToUpper() && _gadget.ID!=gadgetVM.Id)
                     {
                         TempData["extBrand"] = "Bu marka zaten oluşturulmuş.";
                         return View(gadgetVM);
                     }
-                    else if (_gadget.Model.ToUpper() == gadget.Model.ToUpper())
+                    if (_gadget.Model.ToUpper() == gadget.Model.ToUpper() && _gadget.ID!=gadgetVM.Id)
                     {
                         //todo: Modeller aynı olabiliyo mu olamıyo mu diye sorulacak?
                         TempData["extModel"] = "Bu model zaten oluşturulmuş.";
                         return View(gadgetVM);
                     }
-                    else if(_gadget.SerialNumber==gadget.SerialNumber)
+                    if(_gadget.SerialNumber==gadget.SerialNumber && _gadget.ID!=gadgetVM.Id)
                     {
                         TempData["extSerialNumber"] = "Bu seri numarası zaten mevcut";
                         return View(gadgetVM);
@@ -132,6 +174,20 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
 
                 return RedirectToAction("Index");
             }
+            List<SelectListItem> listItems = new List<SelectListItem>();
+
+            foreach (var data in _managerType.GetActives())
+            {
+                SelectListItem listItem = new SelectListItem()
+                {
+                    Value = data.ID.ToString(),
+                    Text = data.TypeName
+                };
+
+                listItems.Add(listItem);
+            }
+
+            gadgetVM.gadgetTypes = listItems;
 
             return View(gadgetVM);
         }

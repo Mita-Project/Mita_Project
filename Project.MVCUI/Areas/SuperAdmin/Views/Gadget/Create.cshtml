@@ -41,6 +41,12 @@
                         <label>Cihaz Gücü</label>
                         <input id="myInput" autocomplete="off" asp-for="KW_Power" type="number" class="form-control" placeholder="Cihaz Gücü" />
                     </div>
+                    <div class="form-group">
+                        <label>Cihaz Tipi</label>
+                        <select id="myInput" asp-for="GadgetTypeID" asp-items="@Model.gadgetTypes" class="form-control">
+                            <option selected="" disabled>Lütfen Bir Tip Seçiniz</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <button onclick="checkInput()" type="submit" class="btn btn-primary">Cihaz Oluştur</button>
