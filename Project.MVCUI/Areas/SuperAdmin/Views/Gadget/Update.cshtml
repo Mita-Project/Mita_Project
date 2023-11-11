@@ -43,6 +43,13 @@
                         <input autocomplete="off" asp-for="KW_Power" type="number" class="form-control" value="@Model.KW_Power" placeholder="@Model.KW_Power">
                         <span style="color:red" asp-validation-for="KW_Power"></span>
                     </div>
+                    <div class="form-group">
+                        <label class="col-md-3">Malzeme Tipi</label>
+                        <select id="myInput" asp-for="GadgetTypeID" asp-items="@Model.gadgetTypes" class="form-control">
+                            <option selected="@Model.GadgetTypeID" disabled>Lütfen Bir Tip Seçiniz</option>
+                        </select>
+                        
+                    </div>
                 </div>
 
                 <div class="card-footer">

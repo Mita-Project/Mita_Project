@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace Project.MVCUI.Areas.SuperAdmin.Models.ViewModels
 {
@@ -13,5 +14,8 @@ namespace Project.MVCUI.Areas.SuperAdmin.Models.ViewModels
         public string SerialNumber { get; set; }
         [Required(ErrorMessage = "Cihaz gücü alanı boş geçilemez !")]
         public double KW_Power { get; set; }
+        public IEnumerable<SelectListItem>? gadgetTypes { get; set; }
+        public int GadgetTypeID { get; set; }
+        public string? GadgetName { get; set; }
     }
 }

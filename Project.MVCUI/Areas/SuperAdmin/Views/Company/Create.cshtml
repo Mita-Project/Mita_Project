@@ -1,0 +1,82 @@
+﻿@using Project.MVCUI.Areas.SuperAdmin.Models.ViewModels;
+@model CompanyVM;
+
+<link href="~/css/CenterDiv.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="centered-div">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Yeni Şirket Oluşturma</h3>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Şirket Adı</label>
+                        <input id="myInput" autocomplete="off" asp-for="CompanyName" type="text" class="form-control" placeholder="Şirket Adı">
+                        <span style="color:red" asp-validation-for="CompanyName"></span>
+                        @if (TempData["extCompanyName"] != null)
+                        {
+                            <span style="color:red">@TempData["extCompanyName"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label>Vergi Kimlik Numarası</label>
+                        <input id="myInput" autocomplete="off" asp-for="Company_VKN" type="text" class="form-control" placeholder="Vergi Kimlik Numarası">
+                        <span style="color:red" asp-validation-for="Company_VKN"></span>
+                        @if (TempData["extCompanyVKN"] != null)
+                        {
+                            <span style="color:red">@TempData["extCompanyVKN"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label>Adres</label>
+                        <input id="myInput" autocomplete="off" asp-for="Address" type="text" class="form-control" placeholder="Adres" />
+                        @if (TempData["extAddress"] != null)
+                        {
+                            <span style="color:red">@TempData["extAddress"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label>Şirket Telefon Numarası</label>
+                        <input id="myInput" autocomplete="off" asp-for="CompanyTelNo" type="text" class="form-control" placeholder="Şirket Telefon Numarası" />
+                        @if (TempData["extCompanyTelNo"] != null)
+                        {
+                            <span style="color:red">@TempData["extCompanyTelNo"]</span>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label>Şirket E-Mail</label>
+                        <input id="myInput" autocomplete="off" asp-for="CompanyMail" type="email" class="form-control" placeholder="Şirket E-Mail" />
+                        @if (TempData["extCompanyMail"] != null)
+                        {
+                            <span style="color:red">@TempData["extCompanyMail"]</span>
+                        }
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Yetkili Kişi İsmi</label>
+                        <input id="myInput" autocomplete="off" asp-for="ContactPersonName" type="text" class="form-control" placeholder="Yetkili Kişi İsmi" />
+                    </div>
+                    <div class="form-group">
+                        <label>Yetkili Kişi Telefon Numarası</label>
+                        <input id="myInput" autocomplete="off" asp-for="ContactPersonTelNo" type="text" class="form-control" placeholder="Yetkili Kişi Telefon Numarası" />
+                    </div>
+                    <div class="form-group">
+                        <label>Yetkili Kişi E-Mail</label>
+                        <input id="myInput" autocomplete="off" asp-for="ContactPersonMail" type="email" class="form-control" placeholder="Yetkili Kişi E-Mail" />
+                    </div>
+                    <div class="form-group">
+                        <label>Şirket Logo Dosyası</label>
+                        <input id="myInput" autocomplete="off" asp-for="CompanyLogoFilePath" type="file" class="form-control" placeholder="Şirket Logo Dosyası" />
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button onclick="checkInput()" type="submit" class="btn btn-primary">Şirket Oluştur</button>
+                    <button asp-area="SuperAdmin" asp-controller="Company" asp-action="Index" class="btn btn-primary" style="float:right">Geri</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
