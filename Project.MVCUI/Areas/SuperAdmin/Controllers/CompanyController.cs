@@ -13,7 +13,7 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
     {
         private readonly ICompany_Manager _manager;
         
-        public CompanyController(ICompany_Manager manager)
+         public CompanyController(ICompany_Manager manager)
         {
             _manager = manager;
            
