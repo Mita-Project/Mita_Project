@@ -8,10 +8,10 @@ namespace Project.Entities.Models
 {
     public class Gadget_ServiceRecord:BaseEntity
     {
-        public virtual ServiceRecord ServiceRecord { get; set; }
+        public virtual ServiceRecord? ServiceRecord { get; set; }
         public int ServiceRecordId { get; set; }
 
-        public virtual Gadget Gadget { get; set; }
+        public virtual Gadget? Gadget { get; set; }
         public int GadgetId { get; set; }
     }
 }

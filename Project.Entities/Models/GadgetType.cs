@@ -8,10 +8,10 @@ namespace Project.Entities.Models
 {
     public class GadgetType:BaseEntity
     {
-        public string TypeName { get; set; }
-        public string TypeDescription { get; set; }
+        public string? TypeName { get; set; }
+        public string? TypeDescription { get; set; }
 
         //Relations
-        public virtual List<Gadget> Gadgets { get; set; }
+        public virtual List<Gadget>? Gadgets { get; set; }
     }
 }
