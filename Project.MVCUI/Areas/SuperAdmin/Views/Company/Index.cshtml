@@ -86,7 +86,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: `/SuperAdmin/Gadget/Delete/${id}`,
+                        url: `/SuperAdmin/Company/Delete/${id}`,
                         type: 'get',
                         success: function (data) {
                             Swal.fire(

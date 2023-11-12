@@ -14,9 +14,9 @@ namespace Project.MVCUI.Areas.SuperAdmin.Models.ViewModels
         [Required(ErrorMessage = "Model boş geçilemez !")]
         public string Model { get; set; }
         [Required(ErrorMessage = "Fiyat boş geçilemez !")]
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
         [Required(ErrorMessage = "Miktar boş geçilemez !")]
-        public int Amount { get; set; }
+        public int? Amount { get; set; }
         public IEnumerable<SelectListItem>? materialTypes { get; set; }
         public int MaterialTypeID { get; set; }
         public string? MaterialName { get; set; }

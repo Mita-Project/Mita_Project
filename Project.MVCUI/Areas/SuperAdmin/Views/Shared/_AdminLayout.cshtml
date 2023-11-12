@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="~/css/adminlte.min.css">
   <!-- SweetAlert -->
   <link href="~/css/sweetalertcss/sweetalert2.min.css" rel="stylesheet" />
+  <!-- FontAwesome -->
+  <link href="~/font-awesome/css/all.min.css" rel="stylesheet" />
+  <link href="~/font-awesome/css/all.css" rel="stylesheet" />
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -151,6 +154,93 @@
                         <a asp-area="SuperAdmin" asp-controller="#" class="nav-link">
                             <i class="fas fa-users nav-icon"></i>
                             <p>Ekip İşlemleri</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-bars"></i>
+                    <p>
+                        Müşteri
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a asp-area="SuperAdmin" asp-controller="Company" class="nav-link">
+                            <i class="fa-solid fa-building nav-icon"></i>
+                            <p>Şirket İşlemleri</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-bars"></i>
+                    <p>
+                        Cihaz
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a asp-area="SuperAdmin" asp-controller="Gadget" class="nav-link">
+                            <i class="fa-solid fa-tachograph-digital nav-icon"></i>
+                            <p>Cihaz İşlemleri</p>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a asp-area="SuperAdmin" asp-controller="GadgetType" class="nav-link">
+                            <i class="fa-solid fa-hard-drive nav-icon"></i>
+                            <p>Cihaz Tipi İşlemleri</p>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a asp-area="SuperAdmin" asp-controller="Material" class="nav-link">
+                            <i class="fa-solid fa-screwdriver-wrench nav-icon"></i>
+                            <p>Malzeme İşlemleri</p>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a asp-area="SuperAdmin" asp-controller="MaterialType" class="nav-link">
+                            <i class="fa-solid fa-hammer nav-icon"></i>
+                            <p>Malzeme Tipi İşlemleri</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-bars"></i>
+                    <p>
+                        Servis
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a asp-area="SuperAdmin" asp-controller="" class="nav-link">
+                            <i class="fa-solid fa-truck-fast nav-icon"></i>
+                            <p>Talep İşlemleri</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="SuperAdmin" asp-controller="" class="nav-link">
+                            <i class="fa-solid fa-handshake nav-icon"></i>
+                            <p>Teklif İşlemleri</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="SuperAdmin" asp-controller="" class="nav-link">
+                            <i class="fa-solid fa-toolbox nav-icon"></i>
+                            <p>Servis Kaydı İşl.</p>
                         </a>
                     </li>
                 </ul>
