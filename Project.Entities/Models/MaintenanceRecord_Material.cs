@@ -8,10 +8,10 @@ namespace Project.Entities.Models
 {
     public class MaintenanceRecord_Material:BaseEntity
     {
-        public virtual MaintenanceRecord MaintenanceRecord { get; set; }
+        public virtual MaintenanceRecord? MaintenanceRecord { get; set; }
         public int MaintenanceRecordId { get; set; }
 
-        public virtual Material Material { get; set; }
+        public virtual Material? Material { get; set; }
         public int MaterialId { get; set; }
     }
 }

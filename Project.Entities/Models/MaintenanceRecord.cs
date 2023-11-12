@@ -8,17 +8,17 @@ namespace Project.Entities.Models
 {
     public class MaintenanceRecord:BaseEntity
     {
-        public DateTime MaintenanceDate { get; set; }
-        public decimal Price { get; set; }
-        public bool Status { get; set; }
+        public DateTime? MaintenanceDate { get; set; }
+        public decimal? Price { get; set; }
+        public bool? Status { get; set; }
 
         //Relations
-        public virtual Maintenance Maintenance { get; set; }
+        public virtual Maintenance? Maintenance { get; set; }
         public int MaintenanceId { get; set; }
 
-        public virtual Team Team { get; set; }
+        public virtual Team? Team { get; set; }
         public int TeamId { get; set; }
 
-        public virtual List<MaintenanceRecord_Material> MaintananceRecord_Materials { get; set; }
+        public virtual List<MaintenanceRecord_Material>? MaintananceRecord_Materials { get; set; }
     }
 }
