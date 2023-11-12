@@ -1,0 +1,121 @@
+﻿@using Project.Entities.Models;
+@model List<Request>;
+<style>
+    body {
+        padding: 30px;
+    }
+</style>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Talep İşlemleri</h3>
+                    <a asp-area="SuperAdmin" asp-controller="Request" asp-action="Create" class="btn btn-primary" style="float: right;">Yeni Talep Oluştur</a>
+                </div>
+                <div class="card-body table-responsive p-0">
+                    <table class="table-bordered" id="dataTableData">
+                        <thead>
+                            <tr>
+                                <th class="cm-strong">Talep Konusu</th>
+                                <th class="cm-strong">Talep Açıklaması</th>
+                                <td style="text-align:center;" class="cm-strong">İşlemler</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @if (Model.Count > 0)
+                            {
+                                foreach (var request in Model)
+                                {
+                                    <tr>
+                                        <td>@request.RequestTopic</td>
+                                        <td>@request.RequestDescription</td>
+                                        <td style="text-align:center;">
+                                            <a asp-area="SuperAdmin" asp-controller="Request" asp-action="Update" asp-route-id="@request.ID" class="btn btn-xs btn-warning">Güncelle</a>
+
+                                            <button class="btn btn-xs btn-danger delete" id="@request.ID" name="@request.RequestTopic">Sil</button>
+
+                                        </td>
+                                    </tr>
+                                }
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SweetAlert Delete Button -->
+@section scripts{
+    <script>
+        var name;
+        var id;
+        $(".delete").on("click", function () {
+            id = $(this).attr('id');
+            name = $(this).attr('name');
+            displayAlert();
+        })
+        function displayAlert() {
+            Swal.fire({
+                title: 'Emin Misiniz ?',
+                text: `${name} Konulu Talep Silinecek.`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Vazgeç',
+                confirmButtonText: 'Evet, Sil!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: `/SuperAdmin/Request/Delete/${id}`,
+                        type: 'get',
+                        success: function (data) {
+                            Swal.fire(
+                                'Silindi!',
+                                'Talep Basariyla Silindi.',
+                                'success'
+                            ).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload();
+                                }
+                            })
+                        }
+                    })
+                }
+            })
+        }
+    </script>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Swal.fire({
+                    title: 'Oluşturuldu !',
+                    text: 'Talep Başarıyla Oluşturuldu !',
+                    icon: 'success'
+                });
+            });
+        </script>
+    }
+
+    @if (TempData["UpdateMessage"] != null)
+    {
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function () {
+                Swal.fire({
+                    title: 'Güncellendi !',
+                    text: 'Talep Başarıyla Güncellendi !',
+                    icon: 'success'
+                });
+            });
+        </script>
+    }
+}

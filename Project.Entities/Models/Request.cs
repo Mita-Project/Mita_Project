@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,6 @@ namespace Project.Entities.Models
 {
     public class Request:BaseEntity
     {
-        
 
         public string? RequestTopic { get; set; }
         public string? RequestDescription { get; set; }
@@ -32,6 +32,11 @@ namespace Project.Entities.Models
 
         public virtual List<Document>? Documents { get; set; }
         public virtual List<Photograph>? Photographs { get; set; }
+
+
+
+
+
 
     }
 }
