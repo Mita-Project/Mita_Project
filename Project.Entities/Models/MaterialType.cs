@@ -8,10 +8,10 @@ namespace Project.Entities.Models
 {
     public class MaterialType:BaseEntity
     {
-        public string TypeName { get; set; }
-        public string TypeDescription { get; set; }
+        public string? TypeName { get; set; }
+        public string? TypeDescription { get; set; }
 
         //Relations
-        public virtual List<Material> Materials { get; set; }
+        public virtual List<Material>? Materials { get; set; }
     }
 }
