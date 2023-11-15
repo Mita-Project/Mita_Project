@@ -1024,7 +1024,7 @@ namespace Project.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("BranchId")
+                    b.Property<int?>("BranchId")
                         .HasColumnType("int");
 
                     b.Property<int>("CompanyId")
@@ -1821,9 +1821,7 @@ namespace Project.DAL.Migrations
                 {
                     b.HasOne("Project.Entities.Models.Branch", "Branch")
                         .WithMany("Requests")
-                        .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BranchId");
 
                     b.HasOne("Project.Entities.Models.Company", "Company")
                         .WithMany("Requests")

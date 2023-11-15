@@ -1,0 +1,33 @@
+﻿@using Project.MVCUI.Areas.SuperAdmin.Models.ViewModels;
+@model RequestVM
+
+<link href="~/css/CenterDiv.css" rel="stylesheet" type="text/css" />
+
+<div class="container">
+    <div class="centered-div">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Talep Güncelleme Ekranı</h3>
+            </div>
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="col-md-3">Talep Konusu</label>
+                        <input autocomplete="off" asp-for="RequestTopic" type="text" class="form-control" value="@Model.RequestTopic" placeholder="@Model.RequestTopic">
+                        <span style="color:red" asp-validation-for="RequestTopic"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3">Talep Açıklaması</label>
+                        <input autocomplete="off" asp-for="RequestDescription" type="text" class="form-control" value="@Model.RequestDescription" placeholder="@Model.RequestDescription">
+                        <span style="color:red" asp-validation-for="RequestDescription"></span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Talep Güncelle</button>
+                    <button asp-area="SuperAdmin" asp-controller="Request" asp-action="Index" class="btn btn-primary" style="float:right">Geri</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
