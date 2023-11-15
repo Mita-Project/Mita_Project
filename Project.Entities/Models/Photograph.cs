@@ -12,12 +12,12 @@ namespace Project.Entities.Models
 
         //Relations
         public virtual Request? Request { get; set; }
-        public int RequestId { get; set; }
+        public int? RequestId { get; set; }
 
         public virtual ServiceRecord? ServiceRecord { get; set; }
-        public int ServiceRecordId { get; set; }
+        public int? ServiceRecordId { get; set; }
 
         public virtual Message? Message { get; set; }
-        public int MessageId { get; set; }
+        public int? MessageId { get; set; }
     }
 }

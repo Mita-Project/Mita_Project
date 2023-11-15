@@ -17,13 +17,13 @@ namespace Project.Entities.Models
 
         //Relations
         public virtual User? User { get; set; }
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
 
         public virtual ServiceRecord? ServiceRecord { get; set; }
-        public int ServiceRecordId { get; set; }
+        public int? ServiceRecordId { get; set; }
 
         public virtual Request? Request { get; set; }
-        public int RequestId { get; set; }
+        public int? RequestId { get; set; }
 
         public virtual List<Offer_Company>? Offer_Companies { get; set; }
     }

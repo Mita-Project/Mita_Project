@@ -14,10 +14,10 @@ namespace Project.Entities.Models
 
         //Relations
         public virtual Maintenance? Maintenance { get; set; }
-        public int MaintenanceId { get; set; }
+        public int? MaintenanceId { get; set; }
 
         public virtual Team? Team { get; set; }
-        public int TeamId { get; set; }
+        public int? TeamId { get; set; }
 
         public virtual List<MaintenanceRecord_Material>? MaintananceRecord_Materials { get; set; }
     }

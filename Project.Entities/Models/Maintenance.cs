@@ -17,13 +17,13 @@ namespace Project.Entities.Models
         //Relations
 
         public virtual Company? Company { get; set; }
-        public int CompanyId { get; set; }
+        public int? CompanyId { get; set; }
 
         public virtual Branch? Branch { get; set; }
-        public virtual int BranchId { get; set; }
+        public virtual int? BranchId { get; set; }
 
         public virtual MaintenanceType? MaintenanceType { get; set; }
-        public int MaintenanceTypeId { get; set; }
+        public int? MaintenanceTypeId { get; set; }
 
         public virtual List<MaintenanceRecord>? MaintenanceRecords { get; set; }
         public virtual List<Gadget_Maintenance>? Gadget_Maintenances { get; set; }

@@ -18,6 +18,10 @@ namespace Project.MAP.Configurations
                 .WithOne(x => x.Company)
                 .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
+            builder.HasMany(x => x.Branches)
+                .WithOne(x => x.Company)
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
+
             builder.HasMany(x => x.ServiceRecord_Companies)
                 .WithOne(x => x.Company);
 

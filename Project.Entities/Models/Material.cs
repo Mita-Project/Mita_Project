@@ -15,7 +15,7 @@ namespace Project.Entities.Models
 
         //Relations
         public virtual MaterialType? MaterialType { get; set; }
-        public int MaterialTypeId { get; set; }
+        public int? MaterialTypeId { get; set; }
 
         public virtual List<MaintenanceRecord_Material>? MaintenanceRecord_Materials { get; set; }
         public virtual List<ServiceRecord_Material>? ServiceRecord_Materials { get; set; }

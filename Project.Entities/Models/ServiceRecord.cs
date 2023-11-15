@@ -19,13 +19,13 @@ namespace Project.Entities.Models
 
         //Relations
         public virtual Offer? Offer { get; set; }
-        public int OfferId { get; set; }
+        public int? OfferId { get; set; }
 
         public virtual Request? Request { get; set; }
-        public int RequestId { get; set; }
+        public int? RequestId { get; set; }
 
         public virtual Team? Team { get; set; }
-        public int TeamId { get; set; }
+        public int? TeamId { get; set; }
 
         public virtual List<EMail>? EMail { get; set; }
         public virtual List<ServiceRecord_Material>? ServiceRecord_Materials { get; set; }

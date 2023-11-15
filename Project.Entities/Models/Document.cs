@@ -13,12 +13,12 @@ namespace Project.Entities.Models
 
         //Relations
         public virtual Message? Message { get; set; }
-        public int MessageId { get; set; }
+        public int? MessageId { get; set; }
 
         public virtual EMail? EMail { get; set; }
-        public int EMailId { get; set; }
+        public int? EMailId { get; set; }
 
         public virtual Request? Request { get; set; }
-        public int RequestId { get; set; }
+        public int? RequestId { get; set; }
     }
 }
