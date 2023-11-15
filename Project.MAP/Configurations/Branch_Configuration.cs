@@ -16,8 +16,7 @@ namespace Project.MAP.Configurations
 
             builder.HasOne(x => x.Company)
                 .WithMany(x => x.Branches)
-                .HasForeignKey(x => x.CompanyId)
-                .IsRequired();
+                .HasForeignKey(x => x.CompanyId);
 
             builder.HasOne(x => x.Maintenance)
                 .WithOne(x => x.Branch)
@@ -25,7 +24,7 @@ namespace Project.MAP.Configurations
 
             builder.HasMany(x => x.Requests)
                 .WithOne(x => x.Branch);
-                
+               
             builder.HasOne(x=>x.BranchType)
                 .WithMany(x => x.Branches)
                 .HasForeignKey(x=>x.BranchTypeId)

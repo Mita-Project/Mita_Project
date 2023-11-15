@@ -21,7 +21,7 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
             return View(requests);
         }
         //Create
-
+        #region Create
         public IActionResult Create() 
         {
             RequestVM _RequestVM= new RequestVM();
@@ -46,6 +46,7 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
             return View(request);
 
         }
+        #endregion
         public IActionResult Update(int id)
         {
             var request = _manager.Find(id);

@@ -15,20 +15,20 @@ namespace Project.Entities.Models
 
         //Relations
         public virtual Offer? Offer { get; set; }
-        public int OfferId { get; set; }
+        public int? OfferId { get; set; }
 
         public virtual Company? Company { get; set; }
-        public int CompanyId { get; set; }
+        public int? CompanyId { get; set; }
 
         public virtual Branch? Branch { get; set; }
-        public int BranchId { get; set; }
+        public int? BranchId { get; set; }
 
 
         public virtual ServiceRecord? ServiceRecord { get; set; }
-        public int ServiceRecordId { get; set; }
+        public int? ServiceRecordId { get; set; }
 
         public virtual Team? Team { get; set; }
-        public int TeamId { get; set; }
+        public int? TeamId { get; set; }
 
         public virtual List<Document>? Documents { get; set; }
         public virtual List<Photograph>? Photographs { get; set; }

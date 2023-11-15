@@ -23,6 +23,7 @@ namespace Project.MVCUI.Areas.SuperAdmin.Controllers
         {
             var companies= _manager.GetActives();
             return View(companies);
+            //todo: Listeleme ekranında yetkili kişi bilgileri data accordion şeklinde gösterilecek.
         }
         //Create
         public IActionResult Create()

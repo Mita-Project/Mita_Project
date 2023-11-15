@@ -19,6 +19,6 @@ namespace Project.Entities.Models
         public virtual List<Gadget_Maintenance>? Gadget_Maintenances { get; set; }
 
         public virtual GadgetType? GadgetType { get; set; }
-        public int GadgetTypeId { get; set; }
+        public int? GadgetTypeId { get; set; }
     }
 }
