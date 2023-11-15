@@ -17,15 +17,15 @@ namespace Project.MAP.Configurations
             builder.HasOne(x => x.Company)
                 .WithMany(x => x.Requests)
                 .HasForeignKey(x => x.CompanyId)
-                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction)
-                .IsRequired();
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.Photographs)
                 .WithOne(x => x.Request);
 
-            builder.HasOne(x => x.Company)
+            builder.HasOne(x => x.Branch)
                 .WithMany(x => x.Requests)
-                .HasForeignKey(x => x.CompanyId);
+                .HasForeignKey(x => x.BranchId)
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.Team)
                 .WithMany(x => x.Requests)

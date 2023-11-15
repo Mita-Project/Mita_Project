@@ -15,7 +15,7 @@ namespace Project.MAP.Configurations
             base.Configure(builder);
 
             builder.HasMany(x => x.Branches)
-                    .WithOne(x=>x.BranchType);
+                    .WithOne(x => x.BranchType);
         }
     }
 }

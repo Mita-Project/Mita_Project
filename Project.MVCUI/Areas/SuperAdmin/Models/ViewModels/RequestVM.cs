@@ -15,11 +15,8 @@ namespace Project.MVCUI.Areas.SuperAdmin.Models.ViewModels
         //Relations
 
         //todo: Talep sayfasında sadece konu ve açıklama gözüküyor. Şirket ve Şube alanları bakılıp eklenecek.
-        [Required(ErrorMessage = "Şirket alanı boş bırakılamaz !")]
         public virtual Company? Company { get; set; }
         public int CompanyId { get; set; }
-
-        [Required(ErrorMessage = "Şube alanı boş bırakılamaz !")]
 
         public virtual Branch? Branch { get; set; }
         public int BranchId { get; set; }
